@@ -5,7 +5,6 @@ const User = require('../models/user');
 const BadRequestError = require('../errors/BadRequestError');
 const DuplicateError = require('../errors/DuplicateError');
 const NotFoundError = require('../errors/NotFoundError');
-const JWT_SECRET_DEV = require('../utils/config');
 
 const { NODE_ENV, JWT_SECRET } = process.env;
 
