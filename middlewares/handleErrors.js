@@ -4,7 +4,7 @@ const handleErrors = (err, req, res, next) => {
   if (err.statusCode) {
     res.status(err.statusCode).send({ message: err.message });
   } else {
-    res.status(INTERNAL_SERVERE_ERROR).send({ message: 'На сервере произошла ошибка' });
+    res.status(INTERNAL_SERVERE_ERROR).send({ message: err.message });
   }
   next();
 };
