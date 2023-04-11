@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 const isURL = require('validator/lib/isURL');
+const { LINK_ERROR } = require('../utils/constants');
 
 const movieSchema = new mongoose.Schema({
   country: {
     type: String,
-    minlength: [1, 'Must be at least 1 characters.'],
-    maxlength: [30, 'Must be at less than 30 characters.'],
+    required: true,
   },
   director: {
     type: String,
@@ -26,17 +26,17 @@ const movieSchema = new mongoose.Schema({
   image: {
     type: String,
     required: true,
-    validate: [isURL, 'Неправильный формат ссылки'],
+    validate: [isURL, LINK_ERROR],
   },
   trailerLink: {
     type: String,
     required: true,
-    validate: [isURL, 'Неправильный формат ссылки'],
+    validate: [isURL, LINK_ERROR],
   },
   thumbnail: {
     type: String,
     required: true,
-    validate: [isURL, 'Неправильный формат ссылки'],
+    validate: [isURL, LINK_ERROR],
   },
   owner: {
     required: true,
