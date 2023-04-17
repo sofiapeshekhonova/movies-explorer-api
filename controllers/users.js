@@ -5,7 +5,9 @@ const User = require('../models/user');
 const BadRequestError = require('../errors/BadRequestError');
 const DuplicateError = require('../errors/DuplicateError');
 const NotFoundError = require('../errors/NotFoundError');
-const { USER_ALREADY_EXISTS, USER_INCORRECT_DATA, USER_NOT_FOUND } = require('../utils/constants');
+const {
+  USER_ALREADY_EXISTS, USER_INCORRECT_DATA, USER_NOT_FOUND, USER_INCORRECT_DATA__UPDATE,
+} = require('../utils/constants');
 
 const { NODE_ENV, JWT_SECRET } = process.env;
 
@@ -74,7 +76,7 @@ module.exports.updateUser = (req, res, next) => {
     })
     .catch((err) => {
       if (err.name === 'ValidationError') {
-        next(new BadRequestError(USER_INCORRECT_DATA));
+        next(new BadRequestError(USER_INCORRECT_DATA__UPDATE));
       } else {
         next(err);
       }

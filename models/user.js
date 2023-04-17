@@ -9,7 +9,6 @@ const {
 const userSchema = new mongoose.Schema({
   name: {
     type: String,
-    default: '33 слова о дизайне',
     required: true,
     minlength: [2, MIN_LENGTH],
     maxlength: [30, MAX_LENGTH],
