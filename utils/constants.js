@@ -3,11 +3,13 @@ const URL_CHECK = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()
 const FILMS_EMPTY = 'Нет сохраненных фильмов';
 const FILMS_INCORRECT_DATA = 'Переданы некорректные данные при создании фильма';
 const FILMS_NOT_FOUND = 'Фильм с указанным _id не найден.';
+const FILMS_INVALID_UD = 'Передан не валидный id';
 const FILMS_NOT_OWNER = 'Чужой фильм удалить нельзя';
 const FILMS_ID_NOT_FOUND = 'Передан некорректный id';
 
 const USER_ALREADY_EXISTS = 'Пользователь с такой почтой уже зарегистрирован';
 const USER_INCORRECT_DATA = 'Переданы некорректные данные при создании пользователя';
+const USER_INCORRECT_DATA__UPDATE = 'Переданы некорректные данные при обновлении пользователя';
 const USER_NOT_FOUND = 'Пользователь несуществует в БД id';
 
 const AUTHORIZATION_REQUIRED = 'Необходима авторизация';
@@ -37,4 +39,6 @@ module.exports = {
   EMAIL_ERROR,
   EMAIL_OR_PASSWORD_ERROR,
   PATH_ERROR,
+  USER_INCORRECT_DATA__UPDATE,
+  FILMS_INVALID_UD,
 };

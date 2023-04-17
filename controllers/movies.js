@@ -3,7 +3,7 @@ const BadRequestError = require('../errors/BadRequestError');
 const NotFoundError = require('../errors/NotFoundError');
 const OwnerError = require('../errors/OwnerError');
 const {
-  FILMS_EMPTY, FILMS_INCORRECT_DATA, FILMS_NOT_FOUND, FILMS_NOT_OWNER,
+  FILMS_EMPTY, FILMS_INCORRECT_DATA, FILMS_NOT_FOUND, FILMS_NOT_OWNER, FILMS_INVALID_UD,
 } = require('../utils/constants');
 
 // GET /movies — возвращает все сохранённые текущим  пользователем фильмы
@@ -78,7 +78,7 @@ module.exports.deleteMovies = (req, res, next) => {
     })
     .catch((err) => {
       if (err.name === 'CastError') {
-        next(new BadRequestError(FILMS_NOT_FOUND));
+        next(new BadRequestError(FILMS_INVALID_UD));
       } else {
         next(err);
       }
