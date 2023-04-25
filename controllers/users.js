@@ -75,7 +75,9 @@ module.exports.updateUser = (req, res, next) => {
       return res.send(user);
     })
     .catch((err) => {
-      if (err.name === 'ValidationError') {
+      if (err.code === 11000) {
+        next(new DuplicateError(USER_ALREADY_EXISTS));
+      } else if (err.name === 'ValidationError') {
         next(new BadRequestError(USER_INCORRECT_DATA__UPDATE));
       } else {
         next(err);
